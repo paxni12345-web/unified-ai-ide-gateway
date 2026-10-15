@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unified AI IDE</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">◇</span><div><strong>Unified AI IDE</strong><small id="workspace-label">workspace</small></div></div>
+      <section class="side-section"><h3>Modes</h3><div id="mode-switcher" class="mode-switcher"></div></section>
+      <section class="side-section"><h3>Backend status</h3><div id="backend-status" class="backend-status"></div><button id="btn-refresh-status" class="btn ghost small" type="button">Refresh</button></section>
+      <section class="side-section grow"><h3>Sessions</h3><div id="session-list" class="session-list"></div></section>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div class="topbar-left"><span id="current-mode-badge" class="badge">chat</span><span id="run-status" class="run-status idle">idle</span></div><div class="topbar-right"><button id="btn-new-session" class="btn ghost small" type="button">New session</button></div></header>
+      <div class="panels">
+        <section class="panel explorer-panel"><div class="panel-header"><h3>Files</h3><button id="btn-refresh-files" class="btn ghost tiny" type="button">↻</button></div><div id="file-path" class="file-path">.</div><div id="file-explorer" class="file-explorer"></div><div id="file-preview" class="file-preview hidden"><div class="panel-header"><h3 id="preview-title">Preview</h3><button id="btn-close-preview" class="btn ghost tiny" type="button">✕</button></div><pre id="preview-content"></pre></div></section>
+        <section class="panel chat-panel"><div id="messages" class="messages"></div><div id="approval-banner" class="approval-banner hidden"><p><strong>Risk confirmation required</strong></p><p id="approval-detail"></p><div class="row"><button id="btn-approve" class="btn danger" type="button">Confirm & run</button><button id="btn-cancel-risk" class="btn ghost" type="button">Cancel</button></div></div><form id="prompt-form" class="prompt-form"><textarea id="prompt-input" rows="3" placeholder="Message the selected mode…"></textarea><div class="prompt-actions"><span id="chat-provider-hint" class="hint"></span><button type="submit" id="btn-send" class="btn primary">Send</button></div></form></section>
+        <section class="panel terminal-panel"><div class="panel-header"><h3>Execution log</h3><button id="btn-clear-log" class="btn ghost tiny" type="button">Clear</button></div><pre id="terminal-log" class="terminal-log"></pre></section>
+      </div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
